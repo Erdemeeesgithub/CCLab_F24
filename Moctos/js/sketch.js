@@ -85,6 +85,7 @@ function draw() {
   endShape();
 
   ellipse(550, 270, 9, 80);
+  // ellipse(550, 270, 9, 80);
 
   fill("#7B3F00"); // on top of grass
   ellipse(330, 210, 20, 50);
