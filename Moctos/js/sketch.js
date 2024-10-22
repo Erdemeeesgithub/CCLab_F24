@@ -17,7 +17,8 @@ let comment;
 let share;
 
 function setup() {
-  createCanvas(800, 500);
+  let cnv=createCanvas(800, 500);
+  cnv.parent("p5-canvas-container")
 
   cart = loadImage("cart.jpg");
   profile = loadImage("profile.jpg");
@@ -150,3 +151,4 @@ function draw() {
 
   //     saveCanvas('Phoebe', 'png');
 }
+``
