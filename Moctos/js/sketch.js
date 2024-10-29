@@ -65,10 +65,11 @@ let birdInitialX = birdX;
 function setup() {
   let cnv = createCanvas(800, 500);
   cnv.parent("p5-canvas-container")
-  cart = loadImage("cart.jpg");
-  profile = loadImage("profile.png");
-  comment = loadImage("comment-44.png");
-  share = loadImage("share.png");
+  
+  cart = loadImage("/cart.jpg");
+  profile = loadImage("/profile.png");
+  comment = loadImage("/comment-44.png");
+  share = loadImage("/share.png");
   camera = loadImage("camera.webp")
   pen = loadImage("pen.png")
   clip = loadImage("clip.png")
