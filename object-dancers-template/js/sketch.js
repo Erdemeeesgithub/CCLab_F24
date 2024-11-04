@@ -18,7 +18,7 @@ function setup() {
   canvas.parent("p5-canvas-container");
 
   // ...except to adjust the dancer's name on the next line:
-  dancer = new YourNameDancer(width / 2, height / 2);
+  dancer = new DoodleBob(width / 2, height / 2);
 }
 
 function draw() {
@@ -32,44 +32,57 @@ function draw() {
 
 // You only code inside this class.
 // Start by giving the dancer your name, e.g. LeonDancer.
-class YourNameDancer {
+class DoodleBob {
   constructor(startX, startY) {
     this.x = startX;
     this.y = startY;
-    // add properties for your dancer here:
-    //..
-    //..
-    //..
+    this.size = 100;
+    this.angle = 0;
+    this.armSwing = 0;
+    this.swingSpeed = 0.1;
+    this.startX = startX;
+    this.startY = startY;
+
+    this.targetX = this.startX + random(-100, 100);
+    this.targetY = this.startY + random(-100, 100);
   }
+
   update() {
-    // update properties here to achieve
-    // your dancer's desired moves and behaviour
+    this.armSwing = sin(this.angle) * 20;
+    this.angle += this.swingSpeed;
+
+    if (frameCount % 30 === 0) {
+      this.targetX = this.startX + random(-100, 100);
+      this.targetY = this.startY + random(-100, 100);
+    }
+
+    this.x = lerp(this.x, this.targetX, 0.1);
+    this.y = lerp(this.y, this.targetY, 0.1);
   }
+
   display() {
-    // the push and pop, along with the translate 
-    // places your whole dancer object at this.x and this.y.
-    // you may change its position on line 19 to see the effect.
     push();
     translate(this.x, this.y);
 
-    // ******** //
-    // ⬇️ draw your dancer from here ⬇️
+    fill(255);
+    stroke(0);
+    rectMode(CENTER);
+    rect(0, 0, this.size, this.size);
 
+    fill(0);
+    ellipse(-20, -20, 10, 10);
+    ellipse(20, -20, 10, 10);
 
+    line(-15, 20, 15, 20);
 
+    stroke(255);
+    strokeWeight(3);
+    line(-this.size / 2, 0, -this.size / 2 - this.armSwing, -20);
+    line(this.size / 2, 0, this.size / 2 + this.armSwing, -20);
 
-
-
-    // ⬆️ draw your dancer above ⬆️
-    // ******** //
-
-    // the next function draws a SQUARE and CROSS
-    // to indicate the approximate size and the center point
-    // of your dancer.
-    // it is using "this" because this function, too, 
-    // is a part if your Dancer object.
-    // comment it out or delete it eventually.
-    this.drawReferenceShapes()
+    stroke(255);
+    line(-20, this.size / 2, -15, this.size / 2 + 20);
+    line(20, this.size / 2, 25, this.size / 2 + 20);
 
     pop();
   }
@@ -85,19 +98,17 @@ class YourNameDancer {
   }
 }
 
+// /*
+// GOAL:
+// The goal is for you to write a class that produces a dancing being/creature/object/thing. In the next class, your dancer along with your peers' dancers will all dance in the same sketch that your instructor will put together.
 
-
-/*
-GOAL:
-The goal is for you to write a class that produces a dancing being/creature/object/thing. In the next class, your dancer along with your peers' dancers will all dance in the same sketch that your instructor will put together. 
-
-RULES:
-For this to work you need to follow one rule: 
-  - Only put relevant code into your dancer class; your dancer cannot depend on code outside of itself (like global variables or functions defined outside)
-  - Your dancer must perform by means of the two essential methods: update and display. Don't add more methods that require to be called from outside (e.g. in the draw loop).
-  - Your dancer will always be initialized receiving two arguments: 
-    - startX (currently the horizontal center of the canvas)
-    - startY (currently the vertical center of the canvas)
-  beside these, please don't add more parameters into the constructor function 
-  - lastly, to make sure our dancers will harmonize once on the same canvas, please don't make your dancer bigger than 200x200 pixels. 
-*/
+// RULES:
+// For this to work you need to follow one rule:
+//   - Only put relevant code into your dancer class; your dancer cannot depend on code outside of itself (like global variables or functions defined outside)
+//   - Your dancer must perform by means of the two essential methods: update and display. Don't add more methods that require to be called from outside (e.g. in the draw loop).
+//   - Your dancer will always be initialized receiving two arguments:
+//     - startX (currently the horizontal center of the canvas)
+//     - startY (currently the vertical center of the canvas)
+//   beside these, please don't add more parameters into the constructor function
+//   - lastly, to make sure our dancers will harmonize once on the same canvas, please don't make your dancer bigger than 200x200 pixels.
+// */
