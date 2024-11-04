@@ -36,7 +36,7 @@ class DoodleBob {
   constructor(startX, startY) {
     this.x = startX;
     this.y = startY;
-    this.size = 100;
+    this.size = 80;
     this.angle = 0;
     this.armSwing = 0;
     this.swingSpeed = 0.1;
