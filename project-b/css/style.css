@@ -10,6 +10,20 @@ p {
   padding: 0;
 }
 
-#p5-canvas-container {
+/* #p5-canvas-container {
   display: block;
+} */
+#p5-canvas-container {
+  position: absolute; /* Makes it sit behind other content */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1; /* Send it to the background */
+}
+#content {
+  position: relative; /* Ensure it's above the canvas */
+  color: white; /* Set a readable color */
+  text-align: center; /* Optional: center the text */
+  padding: 20px;
 }

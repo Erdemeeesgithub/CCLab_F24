@@ -31,11 +31,6 @@ class Particle {
   update() {
     this.y += this.speed;
     this.x += random(-1, 1);
-
-    if (this.y > height) {
-      this.y = random(-100, -10);
-      this.x = random(width);
-    }
   }
 
   display() {
