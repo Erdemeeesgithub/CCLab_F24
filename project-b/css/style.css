@@ -1,3 +1,35 @@
+/* body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+#p5-canvas-container {
+  position: absolute; 
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1; 
+  position: relative;
+}
+#content {
+  position: relative;
+  color: white;
+  text-align: center; 
+  padding: 20px;
+}
+.city-container{
+  width: 1400px;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+} */
 body,
 h1,
 h2,
@@ -9,21 +41,118 @@ p {
   margin: 0;
   padding: 0;
 }
-
-/* #p5-canvas-container {
-  display: block;
-} */
+body {
+  background-color: #8b8b8b;
+  /* background-image: url(https://i.pinimg.com/originals/80/31/12/803112952a7108f000906544d545256e.gif);
+  background-size: cover; */
+}
 #p5-canvas-container {
-  position: absolute; /* Makes it sit behind other content */
+  position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: -1; /* Send it to the background */
+  z-index: 2; /* Layer above the city image */
 }
+
 #content {
-  position: relative; /* Ensure it's above the canvas */
-  color: white; /* Set a readable color */
-  text-align: center; /* Optional: center the text */
+  position: relative;
+  color: white;
+  text-align: center;
   padding: 20px;
+  z-index: 3; /* Optional: Layer above everything if needed */
+}
+
+.city-container {
+  width: 1400px;
+  position: absolute;
+  bottom: 0px;
+  z-index: 1; /* Layer behind the canvas */
+  opacity: 0.5;
+}
+
+.city {
+  width: 100%; /* Fit the container */
+  height: auto;
+}
+#avatar1 {
+  width: 100px;
+  position: absolute;
+  bottom: 20px;
+  left: 120px;
+  z-index: 2;
+  transition: 1s;
+}
+#avatar1:hover {
+  bottom: 30px;
+  transition: 1s;
+}
+#text {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  position: absolute;
+  bottom: 150px;
+  left: 200px;
+  z-index: 3;
+  font-size: 40px;
+  width: 1000px;
+  visibility: hidden;
+  padding: 20px;
+}
+#avatar1-container:hover #text {
+  visibility: visible;
+  opacity: 1;
+  background-color: white;
+  opacity: 0.7;
+  border-radius: 20px;
+}
+#avatar1-container:hover #avatar1 {
+  width: 200px;
+  left: 20px;
+  transition: 1s;
+}
+
+#avatar2 {
+  width: 100px;
+  position: absolute;
+  bottom: 20px;
+  right: 50px;
+  z-index: 2;
+  transition: 1s;
+}
+#avatar2:hover {
+  bottom: 30px;
+  transition: 1s;
+}
+#text2 {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  position: absolute;
+  bottom: 150px;
+  right: 200px;
+  z-index: 3;
+  font-size: 40px;
+  width: 500px;
+  visibility: hidden;
+  padding: 20px;
+}
+#avatar2-container:hover #text2 {
+  visibility: visible;
+  opacity: 1;
+  background-color: red;
+  opacity: 0.7;
+  border-radius: 20px;
+}
+#avatar2-container:hover #avatar2 {
+  width: 200px;
+  right: 20px;
+  transition: 1s;
+}
+
+.container2 {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("https://i.pinimg.com/originals/55/60/61/5560613309173345ce23b58efe6cbef7.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
