@@ -1,35 +1,3 @@
-/* body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin: 0;
-  padding: 0;
-}
-#p5-canvas-container {
-  position: absolute; 
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1; 
-  position: relative;
-}
-#content {
-  position: relative;
-  color: white;
-  text-align: center; 
-  padding: 20px;
-}
-.city-container{
-  width: 1400px;
-  position: absolute;
-  top: 0;
-  z-index: -1;
-} */
 body,
 h1,
 h2,
@@ -52,7 +20,7 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 2; /* Layer above the city image */
+  z-index: 2;
 }
 
 #content {
@@ -60,19 +28,19 @@ body {
   color: white;
   text-align: center;
   padding: 20px;
-  z-index: 3; /* Optional: Layer above everything if needed */
+  z-index: 3;
 }
 
 .city-container {
   width: 1400px;
   position: absolute;
   bottom: 0px;
-  z-index: 1; /* Layer behind the canvas */
+  z-index: 1;
   opacity: 0.5;
 }
 
 .city {
-  width: 100%; /* Fit the container */
+  width: 100%;
   height: auto;
 }
 #avatar1 {
@@ -132,7 +100,7 @@ body {
   right: 200px;
   z-index: 3;
   font-size: 40px;
-  width: 500px;
+  /* width: 500px; */
   visibility: hidden;
   padding: 20px;
 }
@@ -149,10 +117,16 @@ body {
   transition: 1s;
 }
 
-.container2 {
+#container2 {
+  /* width: 100vw;
+  height: 100vh;
+  background-image: url("https://i.pinimg.com/originals/05/1b/61/051b6199d99364a851b82feefcbb34ae.gif");
+  background-repeat: no-repeat;
+  background-size: cover; */
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
-  background-image: url("https://i.pinimg.com/originals/55/60/61/5560613309173345ce23b58efe6cbef7.gif");
-  background-repeat: no-repeat;
-  background-size: cover;
+  z-index: 3;
 }

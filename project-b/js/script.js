@@ -43,10 +43,10 @@ class Car {
     }
   }
   reset() {
-    this.x = random(-100, 0); // Start slightly offscreen to the left
-    this.y = random(height); // Random vertical position
-    this.speedX = random(1, 5); // Random horizontal speed
-    this.speedY = random(-1, 1); // Random vertical speed
+    this.x = random(-100, 0);
+    this.y = random(height);
+    this.speedX = random(1, 5);
+    this.speedY = random(-1, 1);
   }
   display() {
     push();
@@ -66,38 +66,33 @@ function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
 
-// Hover-to-redirect functionality with countdown
 const avatar = document.getElementById("avatar2");
 const text = document.getElementById("text2");
-let hoverTimeout;
+let hoverTime;
 let countdownTimeout;
-let countdownTime = 5; // Countdown starting at 5 seconds
+let countdownTime = 5;
 
-// When the user hovers over the avatar
 avatar.addEventListener("mouseover", () => {
-  text.style.opacity = 1; // Show the text
-  countdownTime = 5; // Reset the countdown to 5 seconds
-  text.textContent = `You will regret this in ${countdownTime}`; // Display countdown
+  text.style.opacity = 1;
+  countdownTime = 5;
+  text.textContent = `You will regret this in ${countdownTime}`;
 
-  // Update countdown every second
   countdownTimeout = setInterval(() => {
     countdownTime--;
-    text.textContent = `You will regret this in ${countdownTime}`; // Update countdown text
+    text.textContent = ` ${countdownTime}`;
     if (countdownTime <= 0) {
-      clearInterval(countdownTimeout); // Stop the countdown when it reaches 0
+      clearInterval(countdownTimeout);
       window.location.href = "new.html";
     }
-  }, 1000); // Update every second
+  }, 1000);
 
-  // Trigger the page change after 5 seconds
-  hoverTimeout = setTimeout(() => {
+  hoverTime = setTimeout(() => {
     window.location.href = window.location.href = "new.html";
   }, 5000);
 });
 
-// When the user stops hovering before 5 seconds
-avatar.addEventListener("mouseout", () => {
-  clearTimeout(hoverTimeout); // Cancel the page change
-  clearInterval(countdownTimeout); // Stop the countdown
-  text.style.opacity = 0; // Hide the text when mouse is out
-});
+// avatar.addEventListener("mouseout", () => {
+//   clearTimeout(hoverTime);
+//   clearInterval(countdownTimeout); // Stop the countdown
+//   text.style.opacity = 0; // Hide the text when mouse is out
+// });

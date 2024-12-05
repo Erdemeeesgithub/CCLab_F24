@@ -1,0 +1,26 @@
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+#p5-canvas-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+#img {
+  width: 650px;
+  z-index: 3;
+  position: absolute;
+  left: 0px;
+  bottom: 0;
+}
