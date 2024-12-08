@@ -44,7 +44,7 @@ body {
   height: auto;
 }
 #avatar1 {
-  width: 100px;
+  width: 150px;
   position: absolute;
   bottom: 20px;
   left: 120px;
@@ -81,7 +81,7 @@ body {
 }
 
 #avatar2 {
-  width: 100px;
+  width: 130px;
   position: absolute;
   bottom: 20px;
   right: 50px;
@@ -129,4 +129,14 @@ body {
   width: 100vw;
   height: 100vh;
   z-index: 3;
+}
+#cloud {
+  width: 1000px;
+  transition: 1s;
+}
+#cloud-container {
+  position: absolute;
+  top: 100px; /* Starting from a reasonable position */
+  left: 0; /* Initially at the left of the screen */
+  z-index: 2;
 }

@@ -11,6 +11,7 @@ function draw() {
   rect(0, height / 2, width, height / 2);
 
   drawMountains();
+  Bush();
 }
 
 function drawMountains() {
@@ -22,7 +23,7 @@ function drawMountains() {
 
   let mountainHeight = height / 4;
 
-  for (let i = 0; i < width; i += 100) {
+  for (let i = 0; i < width / 2 - 100; i += 100) {
     let peakHeight = random(mountainHeight / 2, mountainHeight);
     let leftX = i;
     let rightX = i + 100;
@@ -52,5 +53,18 @@ function drawMountains() {
       ellipse(i + 50, height / 2 - peakHeight, 40, 20);
     }
   }
+}
+function Bush() {
+  fill("#0c8c54");
+  rect(0, 350, 900, 157);
+  ellipse(50, 360, 100, 60);
+  ellipse(180, 370, 100, 60);
+  ellipse(270, 370, 100, 60);
+  ellipse(360, 360, 100, 60);
+  ellipse(460, 357, 90, 60);
+  ellipse(500, 360, 100, 60);
+  ellipse(620, 370, 100, 60);
+  ellipse(710, 360, 100, 60);
+  ellipse(820, 360, 100, 60);
 }
 console.log("runnin");

@@ -19,8 +19,40 @@ p {
 }
 #img {
   width: 650px;
-  z-index: 3;
+  z-index: 1;
   position: absolute;
-  left: 0px;
+  right: 0px;
   bottom: 0;
+}
+#pony1 {
+  position: absolute;
+  bottom: 220px;
+  left: 90px;
+  width: 150px;
+}
+.pony-container {
+  display: flex;
+}
+#ponyText {
+  opacity: -1;
+  position: absolute;
+  top: 400px;
+  left: 300px;
+  padding: 30px;
+  background-color: aliceblue;
+  border-radius: 20px;
+  font-size: 25px;
+  z-index: 2;
+  max-width: 700px;
+  visibility: hidden;
+}
+.pony-container:hover #ponyText {
+  opacity: 0.8;
+  visibility: visible;
+}
+.pony-container:hover #pony1 {
+  width: 400px;
+  bottom: -10px;
+  left: 0px;
+  transition: 1s;
 }
