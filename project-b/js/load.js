@@ -2,6 +2,11 @@ const backgroundPic = document.querySelector("#container2");
 let hoverTime;
 let countdownTimeout;
 let countdownTime = 5;
+let backgroundMusic;
+
+function preload() {
+  backgroundMusic = loadSound("assets/shift.mp3");
+}
 
 backgroundPic.addEventListener("mouseover", () => {
   countdownTime = 5;
@@ -32,6 +37,11 @@ function setup() {
   }
 
   noStroke();
+
+  getAudioContext().suspend();
+  document.querySelector("body").addEventListener("click", () => {
+    getAudioContext().resume();
+  });
 }
 
 function draw() {
@@ -56,3 +66,13 @@ function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
 console.log("running");
+
+function mousePressed() {
+  getAudioContext()
+    .resume()
+    .then(() => {
+      if (!backgroundMusic.isPlaying()) {
+        backgroundMusic.loop();
+      }
+    });
+}

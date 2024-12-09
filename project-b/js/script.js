@@ -1,5 +1,9 @@
 let cars = [];
+let backgroundMusic;
+let talkMusic, batman;
 const avatar1 = document.getElementById("avatar1");
+const avatar2 = document.getElementById("avatar2");
+
 let avatar1Img,
   avatar2Img,
   avatar3Img,
@@ -33,6 +37,8 @@ let avatar1Speed,
   avatar10Speed;
 
 let cloud, cloudSpeed, cloudX, cloudY;
+let cloud2, cloud2Speed, cloud2X, cloud2Y;
+let cloud3, cloud3Speed, cloud3X, cloud3Y;
 
 function preload() {
   avatarImg = loadImage("assets/avatar3.png");
@@ -45,20 +51,47 @@ function preload() {
   avatar8Img = loadImage("assets/avatar10.png");
   avatar9Img = loadImage("assets/avatar11.png");
   avatar10Img = loadImage("assets/avatar12.png");
+  cloudImg = loadImage("assets/cloud.webp");
+  backgroundMusic = loadSound("assets/busyCity.mp3");
+  talkMusic = loadSound("assets/talk.mp3");
+  batman = loadSound("assets/batman.mp3");
 }
+avatar1.addEventListener("click", () => {
+  if (talkMusic.isLoaded()) {
+    talkMusic.play();
+    setTimeout(() => {
+      talkMusic.stop();
+    }, talkMusic.duration() * 100);
+    console.log(talkMusic.duration());
+  }
+});
+avatar2.addEventListener("click", () => {
+  if (batman.isLoaded()) {
+    batman.play();
+  }
+});
 
 function setup() {
   let canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent("p5-canvas-container");
-  cloud = document.getElementById("cloud");
+  // cloud = document.getElementById("cloud");
   // cars = new Car();
+
+  getAudioContext().suspend();
+  document.querySelector("body").addEventListener("click", () => {
+    getAudioContext().resume();
+  });
 
   for (let i = 0; i < 9; i++) {
     cars.push(new Car());
   }
 
   cloudX = -50;
-  cloudY = height - 100;
+  cloudY = height / 5;
+  cloud2X = 600;
+  cloud2Y = height / 6;
+  cloud3X = 900;
+  cloud3Y = height / 5 + 50;
 
   avatar1X = -50;
   avatar1Y = height - 100;
@@ -100,7 +133,7 @@ function setup() {
   avatar8Speed = random(1, 3);
   avatar9Speed = random(1, 3);
   avatar10Speed = random(1, 3);
-  cloudSpeed = random(1, 3);
+  cloudSpeed = random(0, 0.5);
 }
 
 function draw() {
@@ -126,7 +159,9 @@ function draw() {
   drawAvatar8();
   drawAvatar9();
   drawAvatar10();
-  cloud();
+  drawCloud();
+  drawCloud2();
+  drawCloud3();
 }
 
 class Car {
@@ -170,14 +205,34 @@ class Car {
   }
 }
 
-function cloud() {
+function drawCloud() {
   imageMode(CENTER);
-  image(avatarImg, avatar1X, avatar1Y, 130, 130);
+  image(cloudImg, cloudX, cloudY, 700, 500);
 
-  avatar1X += avatar1Speed;
+  cloudX += cloudSpeed;
 
-  if (avatar1X > width + 50) {
-    avatar1X = -50;
+  if (cloudX > width + 50) {
+    cloudX = -50;
+  }
+}
+function drawCloud2() {
+  imageMode(CENTER);
+  image(cloudImg, cloud2X, cloud2Y, 700, 500);
+
+  cloud2X += cloudSpeed;
+
+  if (cloud2X > width + 50) {
+    cloud2X = -50;
+  }
+}
+function drawCloud3() {
+  imageMode(CENTER);
+  image(cloudImg, cloud3X, cloud3Y, 700, 500);
+
+  cloud3X += cloudSpeed;
+
+  if (cloud3X > width + 50) {
+    cloud3X = -50;
   }
 }
 function drawAvatar1() {
@@ -288,16 +343,16 @@ const avatar = document.getElementById("avatar2");
 const text = document.getElementById("text2");
 let hoverTime;
 let countdownTimeout;
-let countdownTime = 5;
+let countdownTime = 7;
 
 avatar.addEventListener("mouseover", () => {
   text.style.opacity = 1;
-  countdownTime = 5;
-  text.textContent = `You will regret this in ${countdownTime}`;
+  countdownTime = 7;
+  text.textContent = `How dare you come here, blaming the past? Go back to your time and see what you and your kind destroyed! You had the chance to fix it, but you let it all fall apart. Now, there’s nothing left to save unless you act!`;
 
   countdownTimeout = setInterval(() => {
     countdownTime--;
-    text.textContent = ` ${countdownTime}`;
+    text.textContent = ` How dare you come here, blaming the past? Go back to your time and see what you and your kind destroyed! You had the chance to fix it, but you let it all fall apart. Now, there’s nothing left to save unless you act!`;
     if (countdownTime <= 0) {
       clearInterval(countdownTimeout);
       window.location.href = "new.html";
@@ -306,9 +361,14 @@ avatar.addEventListener("mouseover", () => {
 
   hoverTime = setTimeout(() => {
     window.location.href = window.location.href = "new.html";
-  }, 5000);
+  }, 7000);
 });
-
-window.onload = function () {
-  draw();
-};
+function mousePressed() {
+  getAudioContext()
+    .resume()
+    .then(() => {
+      if (!backgroundMusic.isPlaying()) {
+        backgroundMusic.loop();
+      }
+    });
+}

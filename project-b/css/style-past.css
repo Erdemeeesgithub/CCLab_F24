@@ -15,25 +15,24 @@ p {
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: -1;
+  z-index: 0;
 }
-#img {
-  width: 650px;
-  z-index: 1;
+#rhino {
   position: absolute;
-  right: 0px;
-  bottom: 0;
-}
-#pony1 {
-  position: absolute;
-  bottom: 220px;
+  bottom: 50px;
   left: 90px;
-  width: 150px;
+  width: 200px;
+  z-index: 4;
 }
-.pony-container {
-  display: flex;
+
+.rhino-container:hover #rhino {
+  width: 400px;
+  bottom: -10px;
+  left: 0px;
+  transition: 1s;
 }
-#ponyText {
+
+#rhinoText {
   opacity: -1;
   position: absolute;
   top: 400px;
@@ -46,13 +45,204 @@ p {
   max-width: 700px;
   visibility: hidden;
 }
-.pony-container:hover #ponyText {
+.rhino-container:hover #rhinoText {
   opacity: 0.8;
   visibility: visible;
 }
-.pony-container:hover #pony1 {
+
+#fish {
+  position: absolute;
+  bottom: 10px;
+  right: 90px;
+  width: 150px;
+  z-index: 4;
+}
+
+.fish-container:hover #fish {
   width: 400px;
   bottom: -10px;
-  left: 0px;
+  right: 0px;
   transition: 1s;
+}
+
+#fishText {
+  opacity: -1;
+  position: absolute;
+  top: 400px;
+  left: 400px;
+  padding: 30px;
+  background-color: aliceblue;
+  border-radius: 20px;
+  font-size: 25px;
+  z-index: 2;
+  max-width: 700px;
+  visibility: hidden;
+}
+.fish-container:hover #fishText {
+  opacity: 0.8;
+  visibility: visible;
+}
+
+#snail {
+  position: absolute;
+  bottom: 20px;
+  right: 400px;
+  width: 100px;
+  z-index: 1;
+}
+
+.snail-container:hover #snail {
+  width: 200px;
+  bottom: -10px;
+  right: 400px;
+  transition: 1s;
+}
+
+#snailText {
+  opacity: -1;
+  position: absolute;
+  top: 300px;
+  left: 300px;
+  padding: 30px;
+  background-color: aliceblue;
+  border-radius: 20px;
+  font-size: 25px;
+  z-index: 2;
+  max-width: 700px;
+  visibility: hidden;
+}
+.snail-container:hover #snailText {
+  opacity: 0.8;
+  visibility: visible;
+}
+
+#deer {
+  position: absolute;
+  bottom: 200px;
+  right: 400px;
+  width: 300px;
+  z-index: 1;
+}
+
+.deer-container:hover #deer {
+  width: 400px;
+  bottom: 200px;
+  right: 400px;
+  transition: 1s;
+}
+
+#deerText {
+  opacity: -1;
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  padding: 30px;
+  background-color: aliceblue;
+  border-radius: 20px;
+  font-size: 25px;
+  z-index: 2;
+  max-width: 700px;
+  visibility: hidden;
+}
+.deer-container:hover #deerText {
+  opacity: 0.8;
+  visibility: visible;
+}
+#bear {
+  position: absolute;
+  bottom: 200px;
+  right: 150px;
+  width: 300px;
+  z-index: 1;
+}
+
+.bear-container:hover #bear {
+  width: 400px;
+  bottom: 200px;
+  right: 150px;
+  transition: 1s;
+}
+
+#bearText {
+  opacity: -1;
+  position: absolute;
+  top: 100px;
+  left: 300px;
+  padding: 30px;
+  background-color: aliceblue;
+  border-radius: 20px;
+  font-size: 25px;
+  z-index: 2;
+  max-width: 700px;
+  visibility: hidden;
+}
+.bear-container:hover #bearText {
+  opacity: 0.8;
+  visibility: visible;
+}
+
+#flower {
+  position: absolute;
+  bottom: 200px;
+  right: 150px;
+  width: 60px;
+  z-index: 4;
+}
+
+.flower-container:hover #flower {
+  width: 150px;
+  bottom: 200px;
+  right: 150px;
+  transition: 1s;
+}
+
+#flowerText {
+  opacity: -1;
+  position: absolute;
+  top: 100px;
+  left: 400px;
+  padding: 30px;
+  background-color: aliceblue;
+  border-radius: 20px;
+  font-size: 25px;
+  z-index: 2;
+  max-width: 700px;
+  visibility: hidden;
+}
+.flower-container:hover #flowerText {
+  opacity: 0.8;
+  visibility: visible;
+}
+
+#white {
+  position: absolute;
+  bottom: 200px;
+  left: 350px;
+  width: 100px;
+  z-index: 1;
+}
+
+.white-container:hover #white {
+  width: 200px;
+  bottom: 200px;
+  left: 350px;
+  transition: 1s;
+}
+
+#whiteText {
+  opacity: -1;
+  position: absolute;
+  top: 100px;
+  left: 400px;
+  padding: 30px;
+  background-color: aliceblue;
+  border-radius: 20px;
+  font-size: 25px;
+  z-index: 2;
+  max-width: 700px;
+  visibility: hidden;
+}
+.white-container:hover #whiteText {
+  opacity: 0.8;
+  visibility: visible;
 }
